@@ -1325,7 +1325,15 @@ session_write_close();
           box-shadow: 0 0 8px var(--accent);
         }
 
-        .hero .scroll-cue-wrapper { bottom: 80px; }
+        .scroll-cue-wrapper--section {
+          bottom: calc(6% + env(safe-area-inset-bottom, 0px));
+          bottom: calc(6% + constant(safe-area-inset-bottom, 0px)); /* fallback */
+        }
+
+        .hero .scroll-cue-wrapper {
+          bottom: calc(32px + env(safe-area-inset-bottom, 0px));
+          bottom: calc(32px + constant(safe-area-inset-bottom, 0px)); /* fallback */
+        }
 
         .about-inner { flex-direction: column; text-align: center; gap: 1.5rem; }
         .about-content { max-width: 100%; padding: 1.8rem; }
