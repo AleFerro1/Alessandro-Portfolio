@@ -399,6 +399,7 @@ session_write_close();
         align-items: center;
         justify-content: center;
         padding: 0 6%;
+        padding-bottom: 130px;
       }
 
       .about-text a {
@@ -585,6 +586,7 @@ session_write_close();
         align-items: center;
         justify-content: center;
         padding: 0 6%;
+        padding-bottom: 130px;
       }
 
       .skills-inner {
@@ -872,6 +874,7 @@ session_write_close();
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding-bottom: 130px;
         opacity: 0;
         transform: translateY(24px);
         transition: opacity 0.9s cubic-bezier(0.16, 0.84, 0.44, 1), transform 0.9s cubic-bezier(0.16, 0.84, 0.44, 1);
@@ -1052,6 +1055,7 @@ session_write_close();
         align-items: center;
         justify-content: center;
         padding: 0 6%;
+        padding-bottom: 130px;
       }
 
       .contact-svg-container {
@@ -1364,6 +1368,14 @@ session_write_close();
         .about-avatar { width: 130px; height: 130px; }
         .about-avatar img, .avatar-fallback { width: 130px; height: 130px; }
         .about-avatar::before { inset: -22px; }
+
+        .about_me,
+        .skills_section,
+        .contact_section,
+        .projects-container {
+          padding-bottom: calc(190px + env(safe-area-inset-bottom, 0px));
+          padding-bottom: calc(190px + constant(safe-area-inset-bottom, 0px)); /* fallback */
+        }
 
         .constellation-wrapper { min-height: 320px; height: 45vh; }
         .skill-label { font-size: 0.7rem; padding: 3px 8px; background: rgba(6, 6, 8, 0.6); }
