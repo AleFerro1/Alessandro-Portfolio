@@ -399,6 +399,7 @@ session_write_close();
         align-items: center;
         justify-content: center;
         padding: 0 6%;
+        padding-top: 120px;
         padding-bottom: 130px;
       }
 
@@ -586,6 +587,7 @@ session_write_close();
         align-items: center;
         justify-content: center;
         padding: 0 6%;
+        padding-top: 120px;
         padding-bottom: 130px;
       }
 
@@ -874,6 +876,7 @@ session_write_close();
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding-top: 120px;
         padding-bottom: 130px;
         opacity: 0;
         transform: translateY(24px);
@@ -1055,6 +1058,7 @@ session_write_close();
         align-items: center;
         justify-content: center;
         padding: 0 6%;
+        padding-top: 120px;
         padding-bottom: 130px;
       }
 
@@ -1373,6 +1377,7 @@ session_write_close();
         .skills_section,
         .contact_section,
         .projects-container {
+          padding-top: 110px;
           padding-bottom: calc(190px + env(safe-area-inset-bottom, 0px));
           padding-bottom: calc(190px + constant(safe-area-inset-bottom, 0px)); /* fallback */
         }
@@ -1541,6 +1546,27 @@ session_write_close();
         .site-footer { 
           bottom: calc(65px + env(safe-area-inset-bottom, 0px));
           bottom: calc(65px + constant(safe-area-inset-bottom, 0px)); /* fallback */
+        }
+      }
+
+      /* Schermi molto bassi (es. telefono in orizzontale): il contenuto si
+         restringe invece di rischiare di toccare le scroll cue sopra/sotto */
+      @media (max-height: 500px) {
+        .about-content { padding: 0.8rem 1.2rem; }
+        .about-title { font-size: 1.4rem; margin-bottom: 0.3rem; }
+        .about-text { font-size: 0.85rem; line-height: 1.5; }
+        .about-avatar { width: 70px; height: 70px; }
+        .about-avatar img, .avatar-fallback { width: 70px; height: 70px; }
+        .about-inner { gap: 0.8rem; }
+
+        .project-card { padding: 0.6rem 1rem; }
+        .project-card-title { font-size: 1.2rem; }
+        .project-card-desc { font-size: 0.75rem; margin: 0.1rem 0 0.5rem; }
+        .card-deck { height: 45vh; }
+
+        .about_me, .skills_section, .contact_section, .projects-container {
+          padding-top: 70px;
+          padding-bottom: 90px;
         }
       }
 
