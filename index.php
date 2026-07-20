@@ -1289,7 +1289,7 @@ session_write_close();
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           border-top: 1px solid rgba(255, 255, 255, 0.12);
-          padding: 8px 5px;
+          padding: 8px 5px calc(8px + env(safe-area-inset-bottom, 0px)); /* <-- safe area */
           z-index: 50;
         }
 
@@ -1393,7 +1393,9 @@ session_write_close();
         }
         .contact-svg-container { display: none; }
 
-        .site-footer { bottom: 70px; }
+        .site-footer { 
+          bottom: calc(70px + env(safe-area-inset-bottom, 0px)); /* <-- safe area */
+        }
 
         /* Language Switcher solo bandierina su mobile */
         .lang-toggle {
