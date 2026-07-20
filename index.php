@@ -53,7 +53,7 @@ session_write_close();
 <html lang="<?= htmlspecialchars($language) ?>">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Alessandro Ferraresi — Junior Web Developer</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1289,7 +1289,7 @@ session_write_close();
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           border-top: 1px solid rgba(255, 255, 255, 0.12);
-          padding: 8px 5px calc(8px + env(safe-area-inset-bottom, 0px)); /* <-- safe area */
+          padding: 8px 5px calc(8px + env(safe-area-inset-bottom, 0px));
           z-index: 50;
         }
 
@@ -1394,17 +1394,17 @@ session_write_close();
         .contact-svg-container { display: none; }
 
         .site-footer { 
-          bottom: calc(70px + env(safe-area-inset-bottom, 0px)); /* <-- safe area */
+          bottom: calc(70px + env(safe-area-inset-bottom, 0px));
         }
 
-        /* Language Switcher solo bandierina su mobile */
+        /* Language Switcher mobile */
         .lang-toggle {
-          padding: 6px 12px;           /* spazio interno orizzontale per respirare */
+          padding: 6px 12px;
           gap: 0;
-          border-radius: 24px;         /* stesse curve del dropdown */
+          border-radius: 24px;
           width: auto;
           height: auto;
-          display: inline-flex;        /* mantiene il contenuto centrato */
+          display: inline-flex;
           align-items: center;
           justify-content: center;
         }
@@ -1423,29 +1423,29 @@ session_write_close();
           transform-origin: top center;
           min-width: auto;
           padding: 4px 6px;
-          border-radius: 24px;         /* coerenza col pulsante */
+          border-radius: 24px;
         }
         .lang-switcher.open .lang-dropdown {
           transform: translateX(-50%) translateY(0) scale(1);
         }
         .lang-dropdown li {
-          padding: 8px 12px;           /* leggermente più compatto */
+          padding: 8px 12px;
           justify-content: center;
           gap: 0;
         }
         .lang-dropdown li .name {
-          display: none;  /* Nasconde il testo delle lingue */
+          display: none;
         }
         .lang-dropdown .fi {
           font-size: 1.2rem;
           margin: 0;
         }
         .lang-dropdown li.active::after {
-          display: none;  /* Nasconde il pallino di attivo per pulizia */
+          display: none;
         }
         .lang-dropdown li.active {
-          background: rgba(255, 255, 255, 0.12); /* leggero highlight senza bordo */
-          border-radius: 16px;         /* angoli interni arrotondati */
+          background: rgba(255, 255, 255, 0.12);
+          border-radius: 16px;
         }
       }
 
@@ -2073,7 +2073,6 @@ session_write_close();
             const allLabels = labelsContainer.querySelectorAll('.skill-label');
             const labelOffsets = [];
 
-            // Ordina i nodi per posizione y per gestire le sovrapposizioni
             const sortedNodes = nodes.slice().sort((a, b) => a.py - b.py);
 
             sortedNodes.forEach(node => {
@@ -2085,26 +2084,20 @@ session_write_close();
                 const halfWidth = labelWidth / 2;
                 const halfHeight = labelHeight / 2;
 
-                // Decide la direzione: se il nodo è sulla metà sinistra (x < 0.5), etichetta a destra, altrimenti a sinistra
                 let left, top;
-                const margin = 30; // distanza dal nodo
+                const margin = 30;
 
                 if (node.x < 0.5) {
-                    // Etichetta a destra del nodo
                     left = node.px + margin;
                 } else {
-                    // Etichetta a sinistra del nodo
                     left = node.px - margin - labelWidth;
                 }
 
-                // Vincola left ai bordi
                 if (left < 5) left = 5;
                 if (left + labelWidth > w - 5) left = w - 5 - labelWidth;
 
-                // Posizione verticale centrata sul nodo
                 top = node.py - halfHeight;
 
-                // Verifica sovrapposizioni con etichette già posizionate
                 let overlap = true;
                 let attempts = 0;
                 const verticalStep = labelHeight + 4;
@@ -2114,18 +2107,17 @@ session_write_close();
                     for (const off of labelOffsets) {
                         if (Math.abs(left - off.left) < labelWidth && Math.abs(top - off.top) < labelHeight) {
                             overlap = true;
-                            top += verticalStep; // sposta in basso
+                            top += verticalStep;
                             break;
                         }
                     }
                     attempts++;
                 }
 
-                // Assicurati che rimanga visibile verticalmente
                 if (top < 5) top = 5;
                 if (top + labelHeight > container.offsetHeight - 5) top = container.offsetHeight - 5 - labelHeight;
 
-                label.style.left = (left + halfWidth) + 'px'; // il CSS usa translateX(-50%), quindi centrato su left+halfWidth
+                label.style.left = (left + halfWidth) + 'px';
                 label.style.top = top + 'px';
 
                 labelOffsets.push({ left, top, id: node.id });
