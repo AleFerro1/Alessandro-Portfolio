@@ -1353,6 +1353,10 @@ session_write_close();
           box-shadow: 0 0 8px var(--accent);
         }
 
+        .scroll-cue-wrapper{
+          display: none;
+        }
+
         .scroll-cue-wrapper--section {
           bottom: calc(100px + env(safe-area-inset-bottom, 0px));
           bottom: calc(100px + constant(safe-area-inset-bottom, 0px));
