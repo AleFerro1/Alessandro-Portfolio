@@ -1334,9 +1334,19 @@ session_write_close();
           bottom: calc(100px + env(safe-area-inset-bottom, 0px));
           bottom: calc(100px + constant(safe-area-inset-bottom, 0px));
         }
+        .about-title {
+          font-size: 1.8rem;  
+        }
+        .card-deck {
+          height: 55vh;        
+        }
+        .project-card-desc {
+          font-size: 0.85rem;
+          margin: 0.2rem 0 0.8rem;
+        }
 
         .about-inner { flex-direction: column; text-align: center; gap: 1.5rem; }
-        .about-content { max-width: 100%; padding: 1.8rem; }
+        .about-content { max-width: 90%; padding: 1.2rem 1.5rem; margin: auto; }
         .about-title, .about-text { text-align: center; }
         .accent-line--about { margin: 0 auto 1.5rem; }
         .about-avatar { width: 130px; height: 130px; }
@@ -1347,9 +1357,9 @@ session_write_close();
         .skill-label { font-size: 0.7rem; padding: 3px 8px; background: rgba(6, 6, 8, 0.6); }
 
         .projects_section { padding: 0 2%; }
-        .project-card { padding: 1.5rem; border-radius: 20px; }
+        .project-card { padding: 1rem 1.5rem; border-radius: 20px; }
         .project-card-title { font-size: 1.8rem; }
-        .mockup-img { width: 100%; padding-top: 50%; }
+        .mockup-img { width: 100%; padding-top: 50%; font-size: 1.6rem;}
 
         .contact-btn { width: 80%; padding: 12px 20px; }
 
@@ -1470,12 +1480,14 @@ session_write_close();
 
         .about-avatar { width: 100px; height: 100px; }
         .about-avatar img, .avatar-fallback { width: 100px; height: 100px; }
-        .about-content { padding: 1.2rem; }
+        .about-content { padding: 1rem 1.2rem;}
+        .about-title { font-size: 1.6rem; }
 
         .constellation-wrapper { min-height: 250px; height: 35vh; }
         .skill-label { font-size: 0.6rem; padding: 2px 6px; }
 
-        .project-card { padding: 1rem; }
+        .card-deck { height: 50vh; }
+        .project-card { padding: 0.8rem 1rem;}
         .project-card-title { font-size: 1.4rem; }
         .project-card-desc { font-size: 0.8rem; }
         .tag-pill { font-size: 0.7rem; padding: 2px 10px; }
