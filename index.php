@@ -92,9 +92,15 @@ session_write_close();
 
       section {
         height: 100vh;
+        height: 100dvh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
         content-visibility: auto;
         contain-intrinsic-size: auto 100vh;
+        scrollbar-width: none; /* Firefox */
       }
+      section::-webkit-scrollbar { display: none; } /* Chrome/Safari */
 
       .page-wrapper {
         transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
@@ -104,6 +110,7 @@ session_write_close();
       /* ========== HERO ========== */
       .hero {
         height: 100vh;
+        height: 100dvh;
         position: relative;
         overflow: hidden;
       }
@@ -384,6 +391,7 @@ session_write_close();
       /* ========== ABOUT ME ========== */
       .about_me {
         height: 100vh;
+        height: 100dvh;
         position: relative;
         overflow: hidden;
         background: var(--bg);
@@ -569,6 +577,7 @@ session_write_close();
       /* ========== SKILLS ========== */
       .skills_section {
         height: 100vh;
+        height: 100dvh;
         position: relative;
         overflow: hidden;
         background: var(--bg);
@@ -843,6 +852,7 @@ session_write_close();
          ============================================================ */
       .projects_section {
         height: 100vh;
+        height: 100dvh;
         position: relative;
         overflow: hidden;
         background: var(--bg);
@@ -858,6 +868,7 @@ session_write_close();
         max-width: 1350px;
         width: 100%;
         height: 100vh;
+        height: 100dvh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1033,6 +1044,7 @@ session_write_close();
          ============================================================ */
       .contact_section {
         height: 100vh;
+        height: 100dvh;
         position: relative;
         overflow: hidden;
         background: var(--bg);
@@ -1377,7 +1389,12 @@ session_write_close();
         .projects-bg,
         .about-content,
         .mockup-img,
-        .contact-svg-container {
+        .contact-svg-container,
+        .orb-1,
+        .orb-2,
+        .orb-3,
+        .orb-4,
+        .orb-5 {
           animation: none !important;
         }
 
@@ -1522,6 +1539,7 @@ session_write_close();
         .title, .accent-line, .subtitle { animation: none; opacity: 1; transform: none; }
         .about-inner { transition: none; opacity: 1; transform: none; }
         .about-bg, .projects-bg { animation: none; }
+        .orb-1, .orb-2, .orb-3, .orb-4, .orb-5 { animation: none; }
         .about-content { transition: none; }
         .about-content:hover { transform: none; }
       }
@@ -1770,7 +1788,7 @@ session_write_close();
 
           currentIndex = clamped;
           isAnimating = true;
-          wrapper.style.transform = `translateY(-${currentIndex * 100}vh)`;
+          wrapper.style.transform = `translateY(-${currentIndex * 100}dvh)`;
 
           navItems.forEach(li => li.classList.remove("active"));
           const activeLi = document.querySelector(`#sideList li[data-target="${sections[currentIndex].id}"]`);
@@ -1846,9 +1864,20 @@ session_write_close();
 
         setTimeout(() => updateCardDeck(0), 100);
                       
+        function sectionCanScroll(el) {
+          return el.scrollHeight > el.clientHeight + 1;
+        }
+        function sectionAtTop(el) {
+          return el.scrollTop <= 0;
+        }
+        function sectionAtBottom(el) {
+          return el.scrollTop + el.clientHeight >= el.scrollHeight - 1;
+        }
+
         window.addEventListener("wheel", (e) => {
           if (isAnimating) return;
-          const sectionId = sections[currentIndex].id;
+          const sectionEl = sections[currentIndex];
+          const sectionId = sectionEl.id;
 
           if (sectionId === 'projects') {
               e.preventDefault();
@@ -1862,6 +1891,13 @@ session_write_close();
               return;
           }
 
+          // Se il contenuto della sezione eccede lo schermo, lascia scorrere
+          // nativamente finché non si raggiunge il bordo in quella direzione.
+          if (sectionCanScroll(sectionEl)) {
+            if (e.deltaY < 0 && !sectionAtTop(sectionEl)) return;
+            if (e.deltaY > 0 && !sectionAtBottom(sectionEl)) return;
+          }
+
           e.preventDefault();
           goToSection(currentIndex + (e.deltaY > 0 ? 1 : -1));
         }, { passive: false });
@@ -1871,6 +1907,18 @@ session_write_close();
           touchStartY = e.touches[0].clientY;
         }, { passive: true });
         window.addEventListener("touchmove", (e) => {
+          if (isAnimating) return;
+          const sectionEl = sections[currentIndex];
+          if (sectionEl.id === 'projects') {
+            e.preventDefault();
+            return;
+          }
+          if (sectionCanScroll(sectionEl)) {
+            const currentY = e.touches[0].clientY;
+            const delta = touchStartY - currentY; // positivo = swipe verso l'alto (scroll giù)
+            if (delta < 0 && !sectionAtTop(sectionEl)) return;
+            if (delta > 0 && !sectionAtBottom(sectionEl)) return;
+          }
           e.preventDefault();
         }, { passive: false });
         window.addEventListener("touchend", (e) => {
@@ -1878,7 +1926,14 @@ session_write_close();
           const delta = touchStartY - e.changedTouches[0].clientY;
           if (Math.abs(delta) < 50) return;
           
-          const sectionId = sections[currentIndex].id;
+          const sectionEl = sections[currentIndex];
+          const sectionId = sectionEl.id;
+
+          if (sectionId !== 'projects' && sectionCanScroll(sectionEl)) {
+            if (delta < 0 && !sectionAtTop(sectionEl)) return;
+            if (delta > 0 && !sectionAtBottom(sectionEl)) return;
+          }
+
           if (sectionId === 'projects') {
               if (delta > 0) {
                   if (cardIndex < maxCards) { cardIndex++; updateCardDeck(cardIndex); }
