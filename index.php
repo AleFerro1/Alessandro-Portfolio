@@ -1326,13 +1326,13 @@ session_write_close();
         }
 
         .scroll-cue-wrapper--section {
-          bottom: calc(80px + env(safe-area-inset-bottom, 0px));
-          bottom: calc(80px + constant(safe-area-inset-bottom, 0px));
+          bottom: calc(100px + env(safe-area-inset-bottom, 0px));
+          bottom: calc(100px + constant(safe-area-inset-bottom, 0px));
         }
 
         .hero .scroll-cue-wrapper {
-          bottom: calc(80px + env(safe-area-inset-bottom, 0px));
-          bottom: calc(80px + constant(safe-area-inset-bottom, 0px));
+          bottom: calc(100px + env(safe-area-inset-bottom, 0px));
+          bottom: calc(100px + constant(safe-area-inset-bottom, 0px));
         }
 
         .about-inner { flex-direction: column; text-align: center; gap: 1.5rem; }
