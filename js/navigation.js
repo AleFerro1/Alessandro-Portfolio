@@ -56,39 +56,39 @@
 
     window.goToSection = function(index) {
         const clamped = Math.max(0, Math.min(sections.length - 1, index));
-        const targetOffset = clamped * 100;
-        if (clamped === window.currentIndex && targetOffset === currentOffset) return;
+        if (clamped === window.currentIndex) return; // già qui, evita risposte duplicate
 
+        // 1. Rimuovi classi di animazione dai contenuti
         document.querySelectorAll('.about-inner, .skills-inner, .projects-container, .contact-inner')
             .forEach(el => el.classList.remove('in-view'));
 
+        // 2. Aggiorna indice corrente
         window.currentIndex = clamped;
-        currentOffset = targetOffset;
         window.isAnimating = true;
-        wrapper.style.transform = `translateY(-${targetOffset}vh)`;
 
+        // 3. Calcola offset in PIXEL (non più vh)
+        const offsetPx = clamped * window.innerHeight;
+        wrapper.style.transform = `translateY(-${offsetPx}px)`;
+
+        // 4. Aggiorna navigazione laterale
         navItems.forEach(li => li.classList.remove("active"));
-        const activeLi = document.querySelector(`#sideList li[data-target="${sections[window.currentIndex].id}"]`);
+        const activeLi = document.querySelector(`#sideList li[data-target="${sections[clamped].id}"]`);
         if (activeLi) activeLi.classList.add("active");
 
-        const newHash = `#${sections[window.currentIndex].id}`;
+        // 5. Aggiorna hash nell'URL (senza ricaricare)
+        const newHash = `#${sections[clamped].id}`;
         if (window.location.hash !== newHash) {
             history.pushState(null, '', newHash);
         }
 
-        if (targetOffset === 0 && wrapper.style.transform === '') {
-            window.animateSectionContent(sections[window.currentIndex]);
-            window.isAnimating = false;
-            return;
-        }
-
+        // 6. Gestione fine transizione per animare i contenuti
         if (onWrapperTransitionEnd) {
             wrapper.removeEventListener('transitionend', onWrapperTransitionEnd);
         }
         onWrapperTransitionEnd = () => {
             wrapper.removeEventListener('transitionend', onWrapperTransitionEnd);
             onWrapperTransitionEnd = null;
-            window.animateSectionContent(sections[window.currentIndex]);
+            window.animateSectionContent(sections[clamped]);
             window.isAnimating = false;
         };
         wrapper.addEventListener('transitionend', onWrapperTransitionEnd);
@@ -98,11 +98,26 @@
             if (onWrapperTransitionEnd) {
                 wrapper.removeEventListener('transitionend', onWrapperTransitionEnd);
                 onWrapperTransitionEnd = null;
-                window.animateSectionContent(sections[window.currentIndex]);
+                window.animateSectionContent(sections[clamped]);
             }
             window.isAnimating = false;
         }, window.TRANSITION_MS + 100);
     };
+
+    // Riposiziona il wrapper al resize SENZA animazione
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            // Disabilita temporaneamente la transizione per uno spostamento istantaneo
+            wrapper.style.transition = 'none';
+            const offsetPx = window.currentIndex * window.innerHeight;
+            wrapper.style.transform = `translateY(-${offsetPx}px)`;
+            // Forza un reflow e ripristina la transizione
+            wrapper.offsetHeight;
+            wrapper.style.transition = 'transform 1s cubic-bezier(0.76, 0, 0.24, 1)';
+        }, 100);
+    });
 
     // Gestione scroll, touch, tastiera, sideList
     function sectionCanScroll(el) { return el.scrollHeight > el.clientHeight + 1; }
