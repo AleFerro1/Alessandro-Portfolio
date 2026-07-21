@@ -16,8 +16,7 @@ $cssFiles = [
     'css/contact.css',
     'css/footer.css',
     'css/orb-animations.css',
-    'css/responsive.css',
-    'css/preloader.css'
+    'css/responsive.css'
 ];
 $cssContent = '';
 foreach ($cssFiles as $file) {
