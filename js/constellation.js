@@ -49,10 +49,10 @@ window.initConstellation = function() {
 
         // Margine verticale: i nodi occupano l'80% dell'altezza, centrati
         const margin = {
-            top: 40,
-            right: 30,
-            bottom: 40,
-            left: 30
+            top: 30,
+            right: 20,
+            bottom: 0,
+            left: 0
         };
 
         const usableWidth = w - margin.left - margin.right;
