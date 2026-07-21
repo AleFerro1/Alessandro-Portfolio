@@ -1,5 +1,5 @@
 // ========== COSTELLAZIONE ==========
-window.skillsData = [];
+//window.skillsData = [];
 window.hoveredNodeId = null;
 window.nodes = [];
 window.constellationInitialized = false;
@@ -8,6 +8,11 @@ let mainCanvas, mainCtx, labelsContainer;
 
 window.initConstellation = function() {
     if (window.constellationInitialized) return;
+    if (!window.skillsData || !Array.isArray(window.skillsData) || window.skillsData.length === 0) {
+        console.warn('Costellazione: dati non ancora disponibili, riprovo tra 100ms');
+        setTimeout(window.initConstellation, 100);
+        return;
+    }
     window.constellationInitialized = true;
 
     const container = document.getElementById('constellationContainer');
@@ -16,8 +21,6 @@ window.initConstellation = function() {
     mainCtx = mainCanvas.getContext('2d');
     labelsContainer = document.getElementById('labelsContainer');
 
-    // skillsData viene popolata da PHP inline, ma ora conviene passarla via JSON in uno script a parte
-    // es. <script>window.skillsData = <?= json_encode($jsonSkills) ?>;</script>
     const connections = [
         [0,1], [0,9], [0,10], [1,2], [1,3], [1,9], [2,3], [2,9],
         [3,4], [3,7], [3,8], [4,5], [4,8], [5,6], [5,7], [5,11],
