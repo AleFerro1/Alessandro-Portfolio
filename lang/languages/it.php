@@ -1,6 +1,6 @@
 <?php
 
-$string['presentazione'] = ".";
+$string['presentazione'] = "Alessandro Ferraresi";
 $string['aboutme'] = 'Sono uno sviluppatore web full-stack con esperienza pratica su progetti
                 reali, dal front-end alla gestione di server Linux. Mi occupo di sviluppo,
                 mantenimento e ottimizzazione di piattaforme LAMP. Inoltre ho esperienza 
@@ -49,13 +49,13 @@ $string['skill_5_name'] = 'Git';
 $string['skill_5_desc'] = 'Conoscenza di git per lo sviluppo in un team';
 
 $string['skill_6_name'] = 'Moodle';
-$string['skill_6_desc'] = 'Configurazione e gestione di piattaforme e-learning, creazione di corsi e personalizzazione dei temi. Manutenzione e migrazione dei server e sviluppo di plugin personaliz';
+$string['skill_6_desc'] = 'Configurazione e gestione di piattaforme e-learning, creazione di corsi e personalizzazione dei temi. Manutenzione e migrazione dei server e sviluppo di plugin personalizzati.';
 
 $string['skill_7_name'] = 'Problem Solving';
 $string['skill_7_desc'] = 'Approccio metodico all\'analisi e risoluzione di problemi complessi.';
 
 $string['skill_8_name'] = 'Linux';
-$string['skill_8_desc'] = 'Familiarità con l\'ambiente CLI, gestione di file, processi, permessi e scripting bash di base.';
+$string['skill_8_desc'] = 'Familiarità con l\'ambiente CLI, gestione di file, processi e permessi.';
 
 $string['skill_9_name'] = 'JSON & XML';
 $string['skill_9_desc'] = 'Parsing, validazione e strutturazione di dati in formato JSON e XML per lo scambio di informazioni.';
@@ -68,12 +68,12 @@ $string['skill_11_desc'] = 'Ottima capacità di collaborazione in team, comunica
 
 
 $string['project_0_name'] = 'ChessNova';
-$string['project_0_desc'] = 'Piattaforma online per sfidare scacchisti di tutto il mondo in tempo reale. Sviluppata con stack LAMP secondo il pattern architetturale MVC, con comunicazione front-end/back-end tramite REST API e partite live gestite via WebSocket.';
+$string['project_0_desc'] = 'Piattaforma online per sfidare scacchisti da tutto il mondo in tempo reale. Sviluppata con stack LAMP secondo il pattern architetturale MVC, con comunicazione front-end/back-end tramite REST API e partite live gestite via WebSocket.';
 
 $string['contact_title'] = 'Contatti';
 $string['nav_contact'] = 'Contatti';
-$string['contact_tagline'] = 'Pronto a costruire qualcosa di straordinario?';
-$string['contact_desc'] = 'Se hai un progetto in mente, una collaborazione o semplicemente vuoi fare due chiacchiere, sono sempre aperto a nuove opportunità.';
+// $string['contact_tagline'] = 'Pronto a costruire qualcosa di straordinario?';
+$string['contact_desc'] = 'Se hai un progetto o una collaborazione in mente, sono sempre aperto a nuove opportunità.';
 $string['contact_btn'] = 'Scrivimi un\'email';
 $string['contact_social_gh'] = 'Github';
 $string['contact_social_li'] = 'LinkedIn';
