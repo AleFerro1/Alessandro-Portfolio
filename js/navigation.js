@@ -11,6 +11,15 @@
 
     history.scrollRestoration = 'manual';
 
+    // 👇 Altezza fissa delle sezioni in pixel
+    function updateSectionHeight() {
+        window.sectionHeight = window.innerHeight;
+        sections.forEach(section => {
+            section.style.height = window.sectionHeight + 'px';
+        });
+    }
+    updateSectionHeight(); // imposta subito
+
     window.getIndexFromHash = function() {
         const hash = window.location.hash.replace('#', '');
         if (!hash) return 0;
@@ -24,24 +33,17 @@
         history.replaceState(null, '', window.location.pathname + window.location.search);
     }
 
-    wrapper.addEventListener('transitionstart', () => {
-        wrapper.style.willChange = 'transform';
-    });
-    wrapper.addEventListener('transitionend', () => {
-        wrapper.style.willChange = 'auto';
-    });
+    wrapper.addEventListener('transitionstart', () => { wrapper.style.willChange = 'transform'; });
+    wrapper.addEventListener('transitionend', () => { wrapper.style.willChange = 'auto'; });
 
     window.animateSectionContent = function(section) {
         const containers = section.querySelectorAll('.about-inner, .skills-inner, .projects-container, .contact-inner');
         containers.forEach(el => {
             el.classList.add('in-view');
             if (el.classList.contains('skills-inner')) {
-                if (typeof window.initConstellation === 'function') {
-                    window.initConstellation();
-                }
+                if (typeof window.initConstellation === 'function') window.initConstellation();
             }
         });
-
         const accentLines = section.querySelectorAll('.accent-line');
         accentLines.forEach(line => {
             line.classList.remove('animate-line');
@@ -50,41 +52,31 @@
         });
     };
 
-    let currentOffset = 0;
     let onWrapperTransitionEnd = null;
     let wrapperTransitionTimer = null;
 
     window.goToSection = function(index) {
         const clamped = Math.max(0, Math.min(sections.length - 1, index));
-        if (clamped === window.currentIndex) return; // già qui, evita risposte duplicate
+        if (clamped === window.currentIndex) return;
 
-        // 1. Rimuovi classi di animazione dai contenuti
         document.querySelectorAll('.about-inner, .skills-inner, .projects-container, .contact-inner')
             .forEach(el => el.classList.remove('in-view'));
 
-        // 2. Aggiorna indice corrente
         window.currentIndex = clamped;
         window.isAnimating = true;
 
-        // 3. Calcola offset in PIXEL (non più vh)
-        const offsetPx = clamped * window.innerHeight;
+        // Usa l'altezza fissa delle sezioni (non window.innerHeight, che potrebbe variare)
+        const offsetPx = clamped * window.sectionHeight;
         wrapper.style.transform = `translateY(-${offsetPx}px)`;
 
-        // 4. Aggiorna navigazione laterale
         navItems.forEach(li => li.classList.remove("active"));
         const activeLi = document.querySelector(`#sideList li[data-target="${sections[clamped].id}"]`);
         if (activeLi) activeLi.classList.add("active");
 
-        // 5. Aggiorna hash nell'URL (senza ricaricare)
         const newHash = `#${sections[clamped].id}`;
-        if (window.location.hash !== newHash) {
-            history.pushState(null, '', newHash);
-        }
+        if (window.location.hash !== newHash) history.pushState(null, '', newHash);
 
-        // 6. Gestione fine transizione per animare i contenuti
-        if (onWrapperTransitionEnd) {
-            wrapper.removeEventListener('transitionend', onWrapperTransitionEnd);
-        }
+        if (onWrapperTransitionEnd) wrapper.removeEventListener('transitionend', onWrapperTransitionEnd);
         onWrapperTransitionEnd = () => {
             wrapper.removeEventListener('transitionend', onWrapperTransitionEnd);
             onWrapperTransitionEnd = null;
@@ -104,22 +96,24 @@
         }, window.TRANSITION_MS + 100);
     };
 
-    // Riposiziona il wrapper al resize SENZA animazione
+    // Al resize ricalcola l'altezza e riposiziona il wrapper senza animazione
     let resizeTimeout;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
-            // Disabilita temporaneamente la transizione per uno spostamento istantaneo
-            wrapper.style.transition = 'none';
-            const offsetPx = window.currentIndex * window.innerHeight;
-            wrapper.style.transform = `translateY(-${offsetPx}px)`;
-            // Forza un reflow e ripristina la transizione
-            wrapper.offsetHeight;
-            wrapper.style.transition = 'transform 1s cubic-bezier(0.76, 0, 0.24, 1)';
-        }, 100);
+            const oldHeight = window.sectionHeight;
+            updateSectionHeight(); // ricalcola altezza sezioni
+            if (window.sectionHeight !== oldHeight) {
+                wrapper.style.transition = 'none';
+                const offsetPx = window.currentIndex * window.sectionHeight;
+                wrapper.style.transform = `translateY(-${offsetPx}px)`;
+                wrapper.offsetHeight; // reflow
+                wrapper.style.transition = 'transform 1s cubic-bezier(0.76, 0, 0.24, 1)';
+            }
+        }, 150);
     });
 
-    // Gestione scroll, touch, tastiera, sideList
+    // ----- Resto della logica (invariata) -----
     function sectionCanScroll(el) { return el.scrollHeight > el.clientHeight + 1; }
     function sectionAtTop(el) { return el.scrollTop <= 0; }
     function sectionAtBottom(el) { return el.scrollTop + el.clientHeight >= el.scrollHeight - 1; }
@@ -163,6 +157,7 @@
         }
         e.preventDefault();
     }, { passive: false });
+
     window.addEventListener("touchend", (e) => {
         if (window.isAnimating) return;
         const delta = touchStartY - e.changedTouches[0].clientY;
