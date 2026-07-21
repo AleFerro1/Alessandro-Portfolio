@@ -302,7 +302,7 @@ $ogImage = 'https://' . $_SERVER['HTTP_HOST'] . '/assets/apple-touch-icon.png';
         <h3 class="skill-card-title" id="skillCardTitle">Nome Skill</h3>
         <p class="skill-card-desc" id="skillCardDesc">Descrizione della skill...</p>
     </div>
-    <script src="./dist/script.min.js" defer></script>
     <script> window.skillsData = <?php echo json_encode($jsonSkills); ?>; </script>
+    <script src="./dist/script.min.js" defer></script>
 </body>
 </html>
