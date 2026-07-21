@@ -1,5 +1,6 @@
 .hero {
-  height: 100vh;
+  min-height: calc(var(--vh) * 100);
+  height: auto;
   position: relative;
   overflow: hidden;
 }

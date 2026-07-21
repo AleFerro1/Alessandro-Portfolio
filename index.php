@@ -305,7 +305,15 @@ $ogImage = 'https://' . $_SERVER['HTTP_HOST'] . '/assets/apple-touch-icon.png';
         <h3 class="skill-card-title" id="skillCardTitle">Nome Skill</h3>
         <p class="skill-card-desc" id="skillCardDesc">Descrizione della skill...</p>
     </div>
-    <script> window.skillsData = <?php echo json_encode($jsonSkills); ?>; </script>
+    <script> window.skillsData = <?php echo json_encode($jsonSkills); ?>; function setRealVH() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        window.addEventListener('resize', setRealVH);
+        window.addEventListener('orientationchange', setRealVH);
+        setRealVH();
+    </script>
     <script src="./dist/script.min.js" defer></script>
 </body>
 </html>

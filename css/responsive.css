@@ -249,8 +249,6 @@
   .card-deck { gap: 0.5rem; }
 
   .about_me {
-    height: auto;
-    min-height: 100vh;       /* Evita schiacciamenti eccessivi */
     padding-top: 70px;
     padding-bottom: 80px;
   }
