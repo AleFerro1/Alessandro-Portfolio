@@ -9,21 +9,33 @@
 }
 
 .about-bg {
-  background-image: url("/assets/img/moon.webp");
+  background-color: #09090C; /* fallback */
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
   filter: brightness(0.82) contrast(1.05);
   animation: moonDrift 30s ease-in-out infinite alternate;
+  transition: background-image 0.3s ease; /* transizione morbida quando appare */
 }
 
 .skills-bg {
-  background-image: url("/assets/img/moondown.webp");
+  background-color: #09090C; /* fallback */
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
   filter: brightness(0.82) contrast(1.05);
   animation: moonDrift 30s ease-in-out infinite alternate;
+  transition: background-image 0.3s ease; /* transizione morbida quando appare */
 }
 
 .projects-bg {
-  background-image: url("/assets/img/earth.webp");
-  filter: brightness(0.85) contrast(1.1);
-  animation: earthDrift 20s ease-in-out infinite alternate;
+  background-color: #09090C; /* fallback */
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  filter: brightness(0.82) contrast(1.05);
+  animation: moonDrift 30s ease-in-out infinite alternate;
+  transition: background-image 0.3s ease; /* transizione morbida quando appare */
 }
 
 @keyframes moonDrift {
