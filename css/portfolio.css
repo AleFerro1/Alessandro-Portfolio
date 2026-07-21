@@ -932,7 +932,7 @@ section::-webkit-scrollbar { display: none; }
   height: 100vh;
   position: relative;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
   background: var(--bg);
   display: flex;
   align-items: center;
