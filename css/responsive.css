@@ -1,0 +1,228 @@
+/* Tablet (fino a 1024px) */
+@media (max-width: 1024px) {
+  .project-card { padding: 2rem; }
+  .project-card-inner { flex-direction: column-reverse; align-items: stretch; }
+  .project-mockup { justify-content: center; width: 100%; }
+  .mockup-img { padding-top: 40%; width: 80%; align-self: center; }
+  .project-visit-btn { align-self: auto; width: 100%; justify-content: center; }
+}
+
+/* Mobile (fino a 768px) */
+@media (max-width: 768px) {
+  .side-list {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0;
+    background: rgba(6, 6, 8, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 8px 5px calc(8px + env(safe-area-inset-bottom, 0px));
+    z-index: 50;
+  }
+
+  .side-list li {
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.65rem;
+    opacity: 0.5;
+    transform: none;
+    white-space: nowrap;
+    padding: 4px 8px;
+  }
+  .side-list li::before { width: 4px; height: 4px; border-width: 1px; }
+  .side-list li.active {
+    opacity: 1;
+    font-weight: 600;
+    font-size: 0.65rem;
+    transform: none;
+    text-shadow: 0 0 6px var(--accent);
+  }
+  .side-list li.active::before {
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+  }
+
+  .scroll-cue-wrapper { display: none; }
+
+  .about-inner { flex-direction: column; text-align: center; gap: 1.5rem; }
+  .about-content { max-width: 90%; padding: 1.2rem 1.5rem; margin: auto; }
+  .about-title, .about-text { text-align: center; }
+  .accent-line--about { margin: 0 auto 1.5rem; }
+  .about-avatar { width: 130px; height: 130px; }
+  .about-avatar img, .avatar-fallback { width: 130px; height: 130px; }
+  .about-avatar::before { inset: -22px; }
+
+  .card-deck {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .project-card {
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+    padding: 1.5rem 1.5rem;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto;
+    border-radius: 20px;
+  }
+  .project-card:not(:first-child) { margin-top: 1rem; }
+  .project-card-inner { flex-direction: column-reverse; align-items: stretch; gap: 1rem; }
+  .project-mockup { justify-content: center; width: 100%; }
+  .mockup-img { width: 100%; padding-top: 50%; }
+  .project-visit-btn { align-self: stretch; width: 100%; justify-content: center; }
+  .project-card-title { font-size: 1.8rem; }
+  .project-card-desc { font-size: 0.85rem; margin: 0.2rem 0 0.8rem; }
+  .projects-deck-title { font-size: 1.8rem; margin-bottom: 0.8rem; }
+
+  .about_me,
+  .skills_section,
+  .contact_section,
+  .projects-container {
+    padding-top: 60px;
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .constellation-wrapper { min-height: 320px; height: 45vh; }
+  .skill-label { font-size: 0.7rem; padding: 3px 8px; background: rgba(6, 6, 8, 0.6); }
+
+  .contact-btn { width: 80%; padding: 12px 20px; }
+
+  .hero {
+    background-color: var(--bg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .about-bg, .skills-bg, .projects-bg,
+  .about-content, .mockup-img, .contact-svg-container,
+  .orb-1, .orb-2, .orb-3, .orb-4, .orb-5 {
+    animation: none !important;
+  }
+
+  .about-content, .skill-card, .lang-toggle, .lang-dropdown,
+  .skill-overlay, .skill-label, .project-card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .about-content { background: rgba(14, 14, 17, 0.9); }
+  .skill-card { background: rgba(14, 14, 17, 0.95); }
+  .lang-toggle { background: rgba(14, 14, 17, 0.85); }
+  .lang-dropdown { background: rgba(14, 14, 17, 0.95); }
+  .skill-overlay { background: rgba(6, 6, 8, 0.85); }
+  .skill-label { background: rgba(6, 6, 8, 0.75); }
+  .project-card { background: rgba(10, 10, 12, 0.92); }
+
+  .about-avatar img,
+  .about-avatar img:hover { box-shadow: 0 0 16px rgba(255, 255, 255, 0.12); }
+  .side-list li.active { text-shadow: 0 0 8px var(--accent); }
+  .side-list li.active::before { box-shadow: 0 0 8px var(--accent); }
+
+  .contact-svg-container { display: none; }
+
+  .site-footer { 
+    bottom: calc(70px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .lang-toggle {
+    padding: 6px 12px;
+    gap: 0;
+    border-radius: 24px;
+  }
+  .lang-toggle .lang-name,
+  .lang-toggle .lang-chevron { display: none; }
+  .lang-toggle .fi { font-size: 1.2rem; margin: 0; }
+
+  .lang-dropdown {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px) scale(0.96);
+    transform-origin: top center;
+    min-width: auto;
+    padding: 4px 6px;
+    border-radius: 24px;
+  }
+  .lang-switcher.open .lang-dropdown {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  .lang-dropdown li {
+    padding: 8px 12px;
+    justify-content: center;
+    gap: 0;
+  }
+  .lang-dropdown li .name { display: none; }
+  .lang-dropdown .fi { font-size: 1.2rem; margin: 0; }
+  .lang-dropdown li.active::after { display: none; }
+  .lang-dropdown li.active {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+  }
+}
+
+/* Schermi molto piccoli (fino a 480px) */
+@media (max-width: 480px) {
+  .side-list li { font-size: 0.6rem; padding: 2px 5px; }
+  .side-list li::before { width: 3px; height: 3px; }
+  .side-list li.active::before { width: 4px; height: 4px; }
+  
+  .title { white-space: normal; font-size: clamp(1.3rem, 8vw, 2.5rem); }
+  .subtitle { font-size: 0.8rem; letter-spacing: 2px; }
+
+  .about-avatar { width: 100px; height: 100px; }
+  .about-avatar img, .avatar-fallback { width: 100px; height: 100px; }
+  .about-content { padding: 1rem 1.2rem; }
+  .about-title { font-size: 1.6rem; }
+
+  .constellation-wrapper { min-height: 250px; height: 35vh; }
+  .skill-label { font-size: 0.6rem; padding: 2px 6px; }
+
+  .card-deck { gap: 1rem; }
+  .project-card { padding: 1rem 1rem; }
+  .project-card-title { font-size: 1.5rem; }
+  .project-card-desc { font-size: 0.8rem; }
+  .tag-pill { font-size: 0.7rem; padding: 2px 10px; }
+  .project-visit-btn { font-size: 0.85rem; padding: 8px 20px; }
+
+  .contact-btn { font-size: 0.9rem; padding: 10px 25px; width: 90%; }
+  .contact-tagline { font-size: 1rem; }
+  .contact-desc { font-size: 0.85rem; }
+  
+  .footer-text { font-size: 0.7rem; }
+  .site-footer { 
+    bottom: calc(65px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Schermi molto bassi (orizzontale) */
+@media (max-height: 500px) {
+  .about-content { padding: 0.8rem 1.2rem; }
+  .about-title { font-size: 1.4rem; margin-bottom: 0.3rem; }
+  .about-text { font-size: 0.85rem; line-height: 1.5; }
+  .about-avatar { width: 70px; height: 70px; }
+  .about-avatar img, .avatar-fallback { width: 70px; height: 70px; }
+  .about-inner { gap: 0.8rem; }
+
+  .project-card { padding: 0.6rem 1rem; }
+  .project-card-title { font-size: 1.2rem; }
+  .project-card-desc { font-size: 0.75rem; margin: 0.1rem 0 0.5rem; }
+  .card-deck { gap: 0.5rem; }
+
+  .about_me, .skills_section, .contact_section, .projects-container {
+    padding-top: 50px;
+    padding-bottom: 80px;
+  }
+}

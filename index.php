@@ -68,7 +68,22 @@ session_write_close();
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/portfolio.css"/>
+    <link rel="stylesheet" href="./css/main.css">
+<link rel="stylesheet" href="./css/hero.css">
+<link rel="stylesheet" href="./css/accent-lines.css">
+<link rel="stylesheet" href="./css/side-nav.css">
+<link rel="stylesheet" href="./css/scroll-cue.css">
+<link rel="stylesheet" href="./css/backgrounds.css">
+<link rel="stylesheet" href="./css/about.css">
+<link rel="stylesheet" href="./css/skills-section.css">
+<link rel="stylesheet" href="./css/lang-switcher.css">
+<link rel="stylesheet" href="./css/constellation.css">
+<link rel="stylesheet" href="./css/skill-card.css">
+<link rel="stylesheet" href="./css/projects.css">
+<link rel="stylesheet" href="./css/contact.css">
+<link rel="stylesheet" href="./css/footer.css">
+<link rel="stylesheet" href="./css/orb-animations.css">
+<link rel="stylesheet" href="./css/responsive.css">
   </head>
   <body>
     <!-- Language Switcher -->

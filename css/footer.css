@@ -1,0 +1,17 @@
+.site-footer {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+}
+.footer-text {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 0.78rem;
+  letter-spacing: 0.4px;
+  color: rgba(255, 255, 255, 0.35);
+  text-align: center;
+}

@@ -1,0 +1,82 @@
+/* Base (Hero) */
+.accent-line {
+  width: 46px;
+  height: 2px;
+  margin: 24px auto 16px;
+  background: var(--accent);
+  box-shadow: 0 0 14px var(--accent), 0 0 28px rgba(228, 230, 234, 0.5);
+  transform-origin: center;
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.accent-line.animate-line {
+  animation: lineGrow 1.5s cubic-bezier(0.16, 0.84, 0.44, 1) 0.15s forwards;
+}
+
+@keyframes lineGrow {
+  from { opacity: 0; transform: scaleX(0); }
+  to { opacity: 1; transform: scaleX(1); }
+}
+
+/* Sezioni (stella cadente) */
+.accent-line--about {
+  position: relative;
+  margin: 0 0 1.6rem 4px;
+  width: 64px;
+  height: 2px;
+  background: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.accent-line--about::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent) 0%, rgba(228, 230, 234, 0) 100%);
+  box-shadow: 0 0 10px var(--accent), 0 0 20px rgba(228, 230, 234, 0.6);
+  transform-origin: right center;
+  transform: scaleX(0);
+}
+
+.accent-line--about::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 12px #ffffff, 0 0 30px rgba(255, 255, 255, 0.9);
+  transform: translate(50%, -50%);
+  opacity: 0;
+  z-index: 2;
+}
+
+.accent-line--about.animate-line::after {
+  animation: shootingLine 1s cubic-bezier(0.16, 0.84, 0.44, 1) 0.2s forwards;
+}
+
+.accent-line--about.animate-line::before {
+  animation: shootingStar 1s cubic-bezier(0.16, 0.84, 0.44, 1) 0.2s forwards;
+}
+
+@keyframes shootingLine {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes shootingStar {
+  0%   { right: 0;   opacity: 1; }
+  100% { right: 100%; opacity: 1; }
+}
+
+/* Allineamenti per sezioni */
+.skills-inner .accent-line--about,
+.contact-inner .accent-line--about { display: block; margin-left: auto; margin-right: auto; margin-bottom: 1.6rem; }
+.projects-container .accent-line--about { display: block; margin-left: auto; margin-right: auto; margin-bottom: 2rem; }

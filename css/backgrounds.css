@@ -1,0 +1,56 @@
+.section-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  transform-origin: center bottom;
+}
+
+.about-bg {
+  background-image: url("/assets/img/moon.webp");
+  filter: brightness(0.82) contrast(1.05);
+  animation: moonDrift 30s ease-in-out infinite alternate;
+}
+
+.skills-bg {
+  background-image: url("/assets/img/moondown.webp");
+  filter: brightness(0.82) contrast(1.05);
+  animation: moonDrift 30s ease-in-out infinite alternate;
+}
+
+.projects-bg {
+  background-image: url("/assets/img/earth.webp");
+  filter: brightness(0.85) contrast(1.1);
+  animation: earthDrift 20s ease-in-out infinite alternate;
+}
+
+@keyframes moonDrift {
+  from { transform: scale(1); }
+  to { transform: scale(1.07); }
+}
+
+@keyframes earthDrift {
+  from { transform: scale(1); }
+  to { transform: scale(1.03); }
+}
+
+.section-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.about-overlay {
+  background: linear-gradient(180deg, #09090C 0%, rgba(6, 6, 8, 0.5) 35%, rgba(6, 6, 8, 0.88) 100%), radial-gradient(circle at 50% 62%, rgba(6, 6, 8, 0.15) 0%, rgba(6, 6, 8, 0.82) 68%);
+}
+
+.skills-overlay {
+  background: linear-gradient(180deg, rgba(6, 6, 8, 0.88) 0%, rgba(6, 6, 8, 0.5) 35%, rgba(6, 6, 8, 0.88) 100%), radial-gradient(circle at 50% 62%, rgba(6, 6, 8, 0.15) 0%, rgba(6, 6, 8, 0.82) 68%);
+}
+
+.projects-overlay {
+  background: linear-gradient(180deg, rgba(6, 6, 8, 0.88) 0%, rgba(6, 6, 8, 0.5) 35%, rgb(0, 0, 0) 100%), radial-gradient(circle at 50% 62%, rgba(6, 6, 8, 0.15) 0%, rgba(6, 6, 8, 0.82) 68%);
+}
