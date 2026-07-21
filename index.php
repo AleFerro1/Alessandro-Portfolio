@@ -321,6 +321,14 @@ function animateSectionContent(section) {
       initConstellation();
     }
   });
+
+  // Riavvia l'animazione delle accent-line nella sezione corrente
+  const accentLines = section.querySelectorAll('.accent-line');
+  accentLines.forEach(line => {
+    line.classList.remove('animate-line');
+    void line.offsetWidth;           // forza il reflow
+    line.classList.add('animate-line');
+  });
 }
 
   let currentOffset = 0;
