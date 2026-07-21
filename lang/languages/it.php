@@ -75,7 +75,7 @@ $string['nav_contact'] = 'Contatti';
 $string['contact_tagline'] = 'Pronto a costruire qualcosa di straordinario?';
 $string['contact_desc'] = 'Se hai un progetto in mente, una collaborazione o semplicemente vuoi fare due chiacchiere, sono sempre aperto a nuove opportunità.';
 $string['contact_btn'] = 'Scrivimi un\'email';
-$string['contact_social_gh'] = 'Instagram';
+$string['contact_social_gh'] = 'Github';
 $string['contact_social_li'] = 'LinkedIn';
 
 $string['scroll_hint'] = 'Scrolla con la rotellina del mouse o le freccette';

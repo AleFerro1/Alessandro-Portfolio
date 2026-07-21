@@ -297,7 +297,7 @@ $pageUrl = $protocol . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
                         <?= $lang->get_string('download_cv') ?>
                     </a>
                     <div class="contact-socials">
-                        <a href="https://www.instagram.com/alessandro_ferraresi_/?hl=it" target="_blank" class="social-link" aria-label="Profilo Instagram"><?= $lang->get_string('contact_social_gh') ?></a>
+                        <a href="https://github.com/AleFerro1" target="_blank" class="social-link" aria-label="Profilo GitHub"><?= $lang->get_string('contact_social_gh') ?></a>
                         <span class="social-divider">&bull;</span>
                         <a href="https://linkedin.com/in/alessandro-ferraresi-56ab04383" target="_blank" class="social-link" aria-label="Profilo LinkedIn"><?= $lang->get_string('contact_social_li') ?></a>
                     </div>

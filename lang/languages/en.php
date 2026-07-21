@@ -67,7 +67,7 @@ $string['nav_contact'] = 'Contact';
 $string['contact_tagline'] = 'Ready to build something extraordinary?';
 $string['contact_desc'] = 'If you have a project in mind, a collaboration, or just want to chat, I’m always open to new opportunities.';
 $string['contact_btn'] = 'Send me an email';
-$string['contact_social_gh'] = 'Instagram';
+$string['contact_social_gh'] = 'Github';
 $string['contact_social_li'] = 'LinkedIn';
 
 $string['scroll_hint'] = 'Scroll with your mouse wheel or arrow keys';
