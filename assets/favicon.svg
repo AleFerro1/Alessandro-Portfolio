@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100"><defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&amp;display=swap');
+    </style>
+  </defs><text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="500" font-size="70" fill="#ffffff" letter-spacing="3">AF</text><style>@media (prefers-color-scheme: light) { :root { filter: contrast(1) brightness(0.1); } }
+@media (prefers-color-scheme: dark) { :root { filter: contrast(0.3846153846153846) brightness(4.5); } }
+</style></svg>
