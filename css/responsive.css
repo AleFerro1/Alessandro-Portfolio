@@ -242,12 +242,57 @@
     flex-direction: column;
     gap: 0.8rem; 
   }
+  .projects-deck-title { font-size: 1.2rem; margin-bottom: 0.4rem; }
 
-  .project-card { padding: 0.6rem 1rem; }
-  .project-card-title { font-size: 1.2rem; }
-  .project-card-desc { font-size: 0.75rem; margin: 0.1rem 0 0.5rem; }
-  .card-deck { gap: 0.5rem; }
+  
+.project-card {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    max-height: 220px;          /* altezza massima ridotta */
+    padding: 0.6rem 1rem;
+    margin: 0 auto;
+    border-radius: 16px;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto;
+  }
+  .project-card { padding: 0.5rem 0.8rem; }
+   .project-card-inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .project-mockup {
+    flex: 0 0 30%;
+    max-width: 30%;
+    justify-content: center;
+  }
+  .mockup-img {
+    width: 100%;
+    padding-top: 0;            /* elimina il rapporto di aspetto forzato */
+    height: 110px;             /* altezza fissa contenuta */
+    border-radius: 12px;
+  }
+  .mockup-img-photo {
+    object-fit: contain;
+  }
 
+  /* Parte testuale */
+  .project-info {
+    flex: 1;
+    gap: 0.3rem;
+  }
+  .project-card-title { font-size: 0.85rem; }
+   .project-card-desc { 
+    font-size: 0.6rem; 
+    margin: 0.1rem 0 0.3rem; 
+  }
+  .card-deck { gap: 0.4rem; }
+  .project-visit-btn {
+    font-size: 0.8rem;
+    padding: 6px 16px;
+  }
   .about_me {
     padding-top: 70px;
     padding-bottom: 80px;
