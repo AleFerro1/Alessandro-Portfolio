@@ -61,6 +61,12 @@ $string['skill_10_desc'] = 'Writing documentation, README files, and notes using
 $string['skill_11_name'] = 'Teamwork';
 $string['skill_11_desc'] = 'Excellent teamwork, clear communication, and effective deadline management.';
 
+$string['skill_12_name'] = 'LAMP';
+$string['skill_12_desc'] = 'Proficient in developing and maintaining web applications using the LAMP stack (Linux, Apache, MySQL, PHP), including server configuration and optimization.';
+
+$string['skill_13_name'] = 'API REST';
+$string['skill_13_desc'] = 'Design and implementation of RESTful APIs for seamless communication between frontend and backend systems.';
+
 $string['project_0_name'] = 'ChessNova';
 $string['project_0_desc'] = 'An online platform where players can challenge chess enthusiasts from around the world in real time. Developed using the LAMP stack following the MVC architectural pattern, with front-end/back-end communication through REST APIs and live matches powered by WebSockets.';
 

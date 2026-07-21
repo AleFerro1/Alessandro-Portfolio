@@ -22,8 +22,11 @@ $phpSkillNodes = [
     ['id' => 8, 'x' => 0.60, 'y' => 0.68],
     ['id' => 9, 'x' => 0.45, 'y' => 0.22],
     ['id' => 10, 'x' => 0.22, 'y' => 0.35],
-    ['id' => 11, 'x' => 0.22, 'y' => 0.85]
+    ['id' => 11, 'x' => 0.22, 'y' => 0.85],
+    ['id' => 12, 'x' => 0.25, 'y' => 0.25],  // LAMP
+    ['id' => 13, 'x' => 0.55, 'y' => 0.55]   // API REST
 ];
+
 $jsonSkills = [];
 foreach ($phpSkillNodes as $node) {
     $jsonSkills[] = [
@@ -67,7 +70,7 @@ $ogImage = 'https://' . $_SERVER['HTTP_HOST'] . '/assets/apple-touch-icon.png';
     <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?= $pageUrl ?>">
-    <meta property="og:title" content="Alessandro Ferraresi — Junior Web Developer">
+    <meta property="og:title" content="Alessandro Ferraresi">
     <meta property="og:description" content="Portfolio con progetti full-stack, costellazione di skill e contatti.">
     <meta property="og:image" content="<?= $ogImage ?>">
     <meta property="og:image:width" content="180">
@@ -76,11 +79,11 @@ $ogImage = 'https://' . $_SERVER['HTTP_HOST'] . '/assets/apple-touch-icon.png';
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="<?= $pageUrl ?>">
-    <meta name="twitter:title" content="Alessandro Ferraresi — Junior Web Developer">
+    <meta name="twitter:title" content="Alessandro Ferraresi">
     <meta name="twitter:description" content="Portfolio con progetti full-stack, costellazione di skill e contatti.">
     <meta name="twitter:image" content="<?= $ogImage ?>">
 
-    <title>Alessandro Ferraresi — Junior Web Developer</title>
+    <title>Alessandro Ferraresi</title>
     <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <link rel="shortcut icon" href="/assets/favicon.ico" />
