@@ -1,10 +1,23 @@
 <?php
 // Combina e minifica CSS
 $cssFiles = [
-    'css/about.css', 'css/accent-lines.css', 'css/backgrounds.css', 'css/constellation.css',
-    'css/contact.css', 'css/footer.css', 'css/hero.css', 'css/lang-switcher.css',
-    'css/main.css', 'css/orb-animations.css', 'css/projects.css', 'css/responsive.css',
-    'css/scroll-cue.css', 'css/side-nav.css', 'css/skill-card.css', 'css/skills-section.css'
+    'css/main.css',
+    'css/hero.css',
+    'css/accent-lines.css',
+    'css/side-nav.css',
+    'css/scroll-cue.css',
+    'css/backgrounds.css',
+    'css/about.css',
+    'css/skills-section.css',
+    'css/lang-switcher.css',
+    'css/constellation.css',
+    'css/skill-card.css',
+    'css/projects.css',
+    'css/contact.css',
+    'css/footer.css',
+    'css/orb-animations.css',
+    'css/responsive.css',
+    'css/preloader.css'
 ];
 $cssContent = '';
 foreach ($cssFiles as $file) {
@@ -19,9 +32,15 @@ file_put_contents('dist/style.min.css', $cssContent);
 
 // Combina e minifica JS 
 $jsFiles = [
-    'js/avatar.js', 'js/constellation.js', 'js/language.js', 'js/lazy-loading.js',
-    'js/main.js', 'js/navigation.js', 'js/preloader.js', 'js/projects.js',
-    'js/skill-card.js'
+    'js/preloader.js',      // se esiste, altrimenti commentalo
+    'js/navigation.js',     // definisce getIndexFromHash, goToSection, animateSectionContent
+    'js/projects.js',       // definisce cardIndex, maxCards, updateCardDeck
+    'js/avatar.js',
+    'js/language.js',
+    'js/lazy-loading.js',
+    'js/skill-card.js',
+    'js/constellation.js',  // definisce initConstellation
+    'js/main.js'            // usa tutte le funzioni precedenti
 ];
 $jsContent = '';
 foreach ($jsFiles as $file) {
