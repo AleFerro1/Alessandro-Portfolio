@@ -225,19 +225,57 @@
 
 /* Schermi molto bassi (orizzontale) */
 @media (max-height: 500px) {
-  .about-content { padding: 0.8rem 1.2rem; }
+  .scroll-cue-wrapper {
+    display: none !important;
+  }
+  .about-content { padding: 0.8rem 1.2rem;
+    max-width: 60%;
+    margin: 0 auto;
+    border-radius: 20px 4px 20px 4px; 
+  }
+  .about-content::before, .about-content::after { display: none; }
   .about-title { font-size: 1.4rem; margin-bottom: 0.3rem; }
-  .about-text { font-size: 0.85rem; line-height: 1.5; }
+  .about-text { font-size: 0.8rem; line-height: 1.4; }
   .about-avatar { width: 70px; height: 70px; }
-  .about-avatar img, .avatar-fallback { width: 70px; height: 70px; }
-  .about-inner { gap: 0.8rem; }
+  .about-avatar img, .avatar-fallback { width: 80px; height: 80px; }
+  .about-inner { 
+    flex-direction: column;
+    gap: 0.8rem; 
+  }
 
   .project-card { padding: 0.6rem 1rem; }
   .project-card-title { font-size: 1.2rem; }
   .project-card-desc { font-size: 0.75rem; margin: 0.1rem 0 0.5rem; }
   .card-deck { gap: 0.5rem; }
 
-  .about_me, .skills_section, .contact_section, .projects-container {
+  .about_me {
+    height: auto;
+    min-height: 100vh;       /* Evita schiacciamenti eccessivi */
+    padding-top: 70px;
+    padding-bottom: 80px;
+  }
+
+  .skills_section {
+    height: auto;
+    min-height: auto;
+    padding-top: 40px;
+    padding-bottom: 70px;
+  }
+  .constellation-wrapper {
+    min-height: 220px;       
+    height: 70vh;            
+  }
+  .constellation-wrapper canvas,
+#labelsContainer {
+  inset: 15px 12px;        /* meno spazio interno per sfruttare l'area */
+}
+
+.skill-label {
+  font-size: 0.6rem;
+  padding: 2px 6px;
+}
+
+  .contact_section, .projects-container {
     padding-top: 50px;
     padding-bottom: 80px;
   }
