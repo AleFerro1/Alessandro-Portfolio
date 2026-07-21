@@ -25,9 +25,15 @@ body {
   overflow: hidden;
 }
 
+.about-inner,
+.skills-inner,
+.projects-container,
+.contact-inner {
+  will-change: transform, opacity;
+}
+
 section {
   height: 100vh;
-  height: 100dvh;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -45,7 +51,6 @@ section::-webkit-scrollbar { display: none; }
 /* ========== HERO ========== */
 .hero {
   height: 100vh;
-  height: 100dvh;
   position: relative;
   overflow: hidden;
 }
@@ -326,7 +331,6 @@ section::-webkit-scrollbar { display: none; }
 /* ========== ABOUT ME ========== */
 .about_me {
   height: 100vh;
-  height: 100dvh;
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
@@ -505,7 +509,6 @@ section::-webkit-scrollbar { display: none; }
 /* ========== SKILLS ========== */
 .skills_section {
   height: 100vh;
-  height: 100dvh;
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
@@ -753,7 +756,6 @@ section::-webkit-scrollbar { display: none; }
    ============================================================ */
 .projects_section {
   height: 100vh;
-  height: 100dvh;
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
@@ -928,7 +930,6 @@ section::-webkit-scrollbar { display: none; }
 /* ========== SEZIONE CONTACT ========== */
 .contact_section {
   height: 100vh;
-  height: 100dvh;
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
