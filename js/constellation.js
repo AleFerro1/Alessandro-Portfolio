@@ -64,36 +64,79 @@ window.initConstellation = function() {
 
     function positionLabels() {
         const w = container.offsetWidth;
+        const h = container.offsetHeight;
         const allLabels = labelsContainer.querySelectorAll('.skill-label');
         const labelOffsets = [];
+        
+        // Margine orizzontale adattivo: almeno 15px, ma su mobile può essere ridotto
+        const horizontalMargin = w < 500 ? 8 : 30;
+        
+        // Ordina i nodi per posizione y (come prima) ma su schermi piccoli 
+        // può essere utile dare priorità alla leggibilità spostando di più verticalmente
         const sortedNodes = window.nodes.slice().sort((a,b) => a.py - b.py);
+        
         sortedNodes.forEach(node => {
             const label = Array.from(allLabels).find(l => parseInt(l.dataset.id) === node.id);
             if (!label) return;
-            const labelWidth = label.offsetWidth || 80, labelHeight = label.offsetHeight || 20;
-            const halfWidth = labelWidth/2, halfHeight = labelHeight/2;
-            let left, top; const margin = 30;
-            if (node.x < 0.5) left = node.px + margin;
-            else left = node.px - margin - labelWidth;
-            if (left < 5) left = 5;
-            if (left + labelWidth > w - 5) left = w - 5 - labelWidth;
+            
+            const labelWidth = label.offsetWidth || 80;
+            const labelHeight = label.offsetHeight || 22;
+            const halfWidth = labelWidth / 2;
+            const halfHeight = labelHeight / 2;
+            
+            let left, top;
+            
+            // Posiziona a destra o sinistra del nodo a seconda della metà schermo
+            if (node.x < 0.5) {
+                left = node.px + horizontalMargin;
+            } else {
+                left = node.px - horizontalMargin - labelWidth;
+            }
+            
+            // Mantieni entro i limiti orizzontali
+            left = Math.max(5, Math.min(left, w - labelWidth - 5));
+            
+            // Allineamento verticale centrato sul nodo
             top = node.py - halfHeight;
-            let overlap = true, attempts = 0;
-            const verticalStep = labelHeight + 4;
-            while (overlap && attempts < 10) {
+            
+            // Evita sovrapposizioni verticali: passo maggiore su mobile
+            const verticalStep = labelHeight + (w < 500 ? 12 : 6);
+            let overlap = true;
+            let attempts = 0;
+            const maxAttempts = 15;
+            
+            while (overlap && attempts < maxAttempts) {
                 overlap = false;
                 for (const off of labelOffsets) {
-                    if (Math.abs(left - off.left) < labelWidth && Math.abs(top - off.top) < labelHeight) {
-                        overlap = true; top += verticalStep; break;
+                    // Verifica sovrapposizione orizzontale + verticale
+                    if (Math.abs(left + halfWidth - off.left - off.halfWidth) < (labelWidth + off.labelWidth) / 2 &&
+                        Math.abs(top - off.top) < (labelHeight + off.labelHeight) / 2) {
+                        overlap = true;
+                        top += verticalStep;
+                        break;
                     }
                 }
                 attempts++;
             }
-            if (top < 5) top = 5;
-            if (top + labelHeight > container.offsetHeight - 5) top = container.offsetHeight - 5 - labelHeight;
+            
+            // Se esce dal bordo inferiore, riporta in alto con un piccolo margine
+            if (top + labelHeight > h - 5) {
+                top = h - labelHeight - 5;
+            }
+            // Non può andare sopra il bordo superiore
+            top = Math.max(5, top);
+            
             label.style.left = (left + halfWidth) + 'px';
             label.style.top = top + 'px';
-            labelOffsets.push({ left, top, id: node.id });
+            
+            labelOffsets.push({ 
+                left, 
+                top, 
+                halfWidth, 
+                halfHeight,
+                labelWidth, 
+                labelHeight 
+            });
         });
     }
 
