@@ -1,6 +1,6 @@
 <?php
 
-$string['presentazione'] = "Alessandro Ferraresi";
+$string['presentazione'] = ".";
 $string['aboutme'] = 'Sono uno sviluppatore web full-stack con esperienza pratica su progetti
                 reali, dal front-end alla gestione di server Linux. Mi occupo di sviluppo,
                 mantenimento e ottimizzazione di piattaforme LAMP. Inoltre ho esperienza 
