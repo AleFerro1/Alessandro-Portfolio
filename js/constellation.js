@@ -46,7 +46,23 @@ window.initConstellation = function() {
         const w = container.offsetWidth, h = container.offsetHeight;
         staticCanvas.width = w; staticCanvas.height = h;
         staticCtx.clearRect(0, 0, w, h);
-        window.nodes = window.skillsData.map(s => ({...s, px: s.x * w, py: s.y * h}));
+
+        // Margine verticale: i nodi occupano l'80% dell'altezza, centrati
+        const margin = {
+            top: 40,
+            right: 30,
+            bottom: 40,
+            left: 30
+        };
+
+        const usableWidth = w - margin.left - margin.right;
+        const usableHeight = h - margin.top - margin.bottom;
+
+        window.nodes = window.skillsData.map(s => ({
+            ...s,
+            px: s.x * usableWidth + margin.left,
+            py: s.y * usableHeight + margin.top
+        }));
 
         connections.forEach(([fromIdx, toIdx]) => {
             const from = window.nodes[fromIdx], to = window.nodes[toIdx];

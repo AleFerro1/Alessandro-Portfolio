@@ -7,22 +7,16 @@
   overflow: hidden;
 }
 
-.constellation-wrapper canvas {
+.constellation-wrapper canvas,
+#labelsContainer {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  cursor: pointer;
+  inset: 30px 20px;   /* 30px sopra/sotto, 20px sinistra/destra */
+  width: auto;
+  height: auto;
+  z-index: 0; /* canvas */
 }
 
 #labelsContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   z-index: 1;
   pointer-events: none;
 }
