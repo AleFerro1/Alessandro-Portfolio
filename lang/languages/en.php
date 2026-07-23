@@ -85,4 +85,4 @@ $string['back_to_top'] = 'Back to Top';
 $string['footer_rights'] = 'All Rights Reserved';
 
 $string['download_cv'] = 'Download CV';
-$string['cv_filename'] = 'alessandro-ferraresi-CV-EN.pdf';
+$string['cv_filename'] = 'Alessandro-Ferraresi-CV-EN.pdf';
