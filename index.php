@@ -282,7 +282,7 @@ $ogImage = 'https://' . $_SERVER['HTTP_HOST'] . '/assets/apple-touch-icon.png';
                 <div class="contact-content">
                     <p class="contact-desc"><?= $lang->get_string('contact_desc') ?></p>
                     <a href="mailto:alessandroferraresi2006@gmail.com" class="contact-btn" aria-label="Invia una email"><?= $lang->get_string('contact_btn') ?></a>
-                    <a href="./assets/docs/alessandro-ferraresi-CV.pdf" download class="contact-btn contact-btn--secondary" aria-label="Scarica il curriculum in PDF">
+                    <a href="./assets/docs/<?= $lang->get_string('cv_filename') ?>" download class="contact-btn contact-btn--secondary" aria-label="Scarica il curriculum in PDF">
                         <?= $lang->get_string('download_cv') ?>
                     </a>
                     <div class="contact-socials">
