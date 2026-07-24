@@ -163,7 +163,7 @@ $ogImage = 'https://' . $_SERVER['HTTP_HOST'] . '/assets/apple-touch-icon.png';
             <div class="about-overlay section-overlay"></div>
             <div class="about-inner">
                 <div class="about-avatar">
-                    <img id="avatarImg" src="" alt="Alessandro Ferraresi" width="180" height="180" loading="lazy" decoding="async" fetchpriority="high" />
+                    <img id="avatarImg" src="/assets/img/avatar.webp" alt="Alessandro Ferraresi" width="180" height="180" loading="lazy" decoding="async" fetchpriority="high" />
                     <div class="avatar-fallback" id="avatarFallback">AF</div>
                 </div>
                 <div class="about-content">

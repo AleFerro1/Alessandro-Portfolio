@@ -55,8 +55,8 @@
 .about-avatar {
   position: relative;
   flex-shrink: 0;
-  width: 180px;
-  height: 180px;
+  width: 280px;
+  height: 280px;
 }
 
 .about-avatar::before {
@@ -71,8 +71,8 @@
 .about-avatar img, .avatar-fallback {
   position: absolute;
   inset: 0;
-  width: 180px;
-  height: 180px;
+  width: 280px;
+  height: 280px;
   border-radius: 50%;
 }
 
