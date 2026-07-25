@@ -288,7 +288,7 @@ $ogImage = 'https://' . $_SERVER['HTTP_HOST'] . '/assets/apple-touch-icon.png';
                     <div class="contact-socials">
                         <a href="https://github.com/AleFerro1" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Profilo GitHub"><?= $lang->get_string('contact_social_gh') ?></a>
                         <span class="social-divider">&bull;</span>
-                        <a href="https://linkedin.com/in/alessandro-ferraresi-56ab04383" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Profilo LinkedIn"><?= $lang->get_string('contact_social_li') ?></a>
+                        <a href="https://linkedin.com/in/alessandroferraresi" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Profilo LinkedIn"><?= $lang->get_string('contact_social_li') ?></a>
                     </div>
                 </div>
             </div>
