@@ -1,0 +1,9 @@
+# Se qualcuno prova ad aprire build.php direttamente dal browser,
+# viene reindirizzato alla home invece di vedere un errore 403.
+RewriteEngine On
+RewriteRule ^build\.php$ / [R=302,L]
+
+# Qualsiasi URL che non corrisponde a un file/pagina esistente (404)
+# viene rimandato alla home invece di mostrare la pagina di errore.
+# Vale per tutto il sito, comprese le sottocartelle (lang/, css/, ecc.).
+ErrorDocument 404 /

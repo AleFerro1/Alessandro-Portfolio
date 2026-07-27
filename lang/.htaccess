@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Lang.php e i file dentro languages/ non vanno mai aperti direttamente:
+# chi ci prova viene rimandato alla home, senza vedere una pagina di errore.
+RewriteRule ^(Lang\.php|languages/.*)$ /? [R=302,L]
+
+# set_language.php deve rispondere solo a POST (chiamato via fetch da
+# language.js). Su qualunque altro metodo (es. GET da URL nel browser)
+# reindirizza alla home invece di mostrare l'errore JSON.
+RewriteCond %{REQUEST_METHOD} !POST
+RewriteRule ^set_language\.php$ /? [R=302,L]
+
