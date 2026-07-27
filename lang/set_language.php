@@ -3,6 +3,13 @@ session_start();
 
 header('Content-Type: application/json');
 
+// Il file va chiamato solo via fetch POST da language.js: una richiesta
+// GET (es. da navigazione diretta nel browser) viene rifiutata subito.
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header("Location: /");
+    exit;
+}
+
 $data = json_decode(file_get_contents('php://input'), true);
 $requested = isset($data['lang']) ? strtolower(trim($data['lang'])) : '';
 
